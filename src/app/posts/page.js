@@ -1,57 +1,54 @@
-export default function CartPage() {
-  const cartItems = [
-    {
-      id: 1,
-      name: "Acoustic Guitar",
-      price: 199.99,
-      quantity: 1,
-      image: "https://via.placeholder.com/100",
-    },
-    {
-      id: 2,
-      name: "Studio Headphones",
-      price: 89.99,
-      quantity: 2,
-      image: "https://via.placeholder.com/100",
-    },
-  ];
+import { MessageCircle, Filter } from 'lucide-react'
 
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-
+export default function PostsPage() {
   return (
-    <main className="p-6 max-w-3xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
-      <div className="space-y-4">
-        {cartItems.map((item) => (
-          <div
-            key={item.id}
-            className="flex items-center border rounded-lg p-4 shadow-sm"
-          >
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-24 h-24 object-cover rounded"
-            />
-            <div className="ml-4 flex-1">
-              <h2 className="text-xl font-semibold">{item.name}</h2>
-              <p className="text-gray-600">Qty: {item.quantity}</p>
-              <p className="text-gray-800 font-medium">${item.price.toFixed(2)}</p>
+    <>
+      {/* White Background Section */}
+      <section className="w-screen -ml-31 bg-white min-h-screen">
+        <div className="max-w-[1200px] mx-auto px-4 py-16">
+          {/* Header Section */}
+          <div className="flex justify-between items-center mb-12">
+            <div>
+              <h1 className="text-4xl font-bold text-gray-900 mb-3">
+                Community Posts
+              </h1>
+              <p className="text-lg text-gray-600">
+                Share your musical journey with the community
+              </p>
             </div>
-            <div className="text-right font-bold">
-              ${(item.price * item.quantity).toFixed(2)}
+            <button
+              className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Create Post
+            </button>
+          </div>
+
+          {/* Filter Section */}
+          <div className="flex gap-3 mb-12">
+            <button className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors">
+              <Filter className="w-4 h-4" />
+            </button>
+            <button className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              All
+            </button>
+          </div>
+
+          {/* Empty State */}
+          <div className="bg-gray-50 rounded-2xl py-24">
+            <div className="max-w-md mx-auto text-center px-4">
+              <div className="flex justify-center mb-6">
+                <MessageCircle className="w-20 h-20 text-gray-400" />
+              </div>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-3">
+                No posts yet
+              </h2>
+              <p className="text-gray-600 text-lg">
+                Be the first to share something with the community!
+              </p>
             </div>
           </div>
-        ))}
-      </div>
-      <div className="mt-6 text-right text-2xl font-bold">
-        Total: ${total.toFixed(2)}
-      </div>
-      <button className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold">
-        Checkout
-      </button>
-    </main>
-  );
+        </div>
+      </section>
+    </>
+  )
 }

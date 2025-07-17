@@ -2,23 +2,30 @@
 
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Link from 'next/link';
+import { Music } from 'lucide-react';
 
 export default function Navbar() {
   return (
-    <nav className="w-full flex items-center justify-between px-6 py-4 border-b shadow-sm bg-white sticky top-0 z-50">
-      <div className="text-xl font-bold text-blue-600">
-        <Link href="/">TuneFund</Link>
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-4 bg-[var(--background)]/90 backdrop-blur border-b border-[var(--foreground)]/10">
+      <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 text-xl font-semibold text-blue-500">
+          <Music className="w-6 h-6" />
+          MalaysianFund
+        </Link>
       </div>
 
-      <div className="space-x-4 flex items-center">
-        <Link href="/campaign" className="text-gray-700 hover:text-blue-600 font-medium">
+      <div className="flex items-center gap-8">
+        <Link href="/campaign" className="text-[var(--foreground)] hover:text-blue-500 transition-colors">
           Campaigns
         </Link>
-        <Link href="/posts" className="text-gray-700 hover:text-blue-600 font-medium">
+        <Link href="/merch" className="text-[var(--foreground)] hover:text-blue-500 transition-colors">
+          Merchandise
+        </Link>
+        <Link href="/posts" className="text-[var(--foreground)] hover:text-blue-500 transition-colors">
           Posts
         </Link>
-        <Link href="/store" className="text-gray-700 hover:text-blue-600 font-medium">
-          Store
+        <Link href="/about" className="text-[var(--foreground)] hover:text-blue-500 transition-colors">
+          About
         </Link>
         <ConnectButton />
       </div>
